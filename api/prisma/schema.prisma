@@ -39,12 +39,14 @@ model Comment {
 }
 
 model Video {
-  videoId     String  @id() @default(uuid()) @db.Uuid()
-  title       String  @db.VarChar(255)
-  description String  @db.VarChar(1023)
-  filePath    String  @db.VarChar(1023)
-  views       BigInt  @default(0)
-  public      Boolean @default(true)
+  videoId       String   @id() @default(uuid()) @db.Uuid()
+  title         String   @db.VarChar(255)
+  description   String   @db.VarChar(1023)
+  videoPath     String   @db.VarChar(1023)
+  thumbnailPath String   @db.VarChar(1023)
+  tags          String[] @db.VarChar(32)
+  views         Int      @default(0)
+  public        Boolean  @default(true)
 
   userId String @db.Uuid()
   user   User   @relation(fields: [userId], references: [userId])

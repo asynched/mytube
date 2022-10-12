@@ -1,0 +1,14 @@
+### List videos
+
+GET http://localhost:3000/api/videos HTTP/1.1
+Accept: application/json
+
+### Get video
+
+GET http://localhost:3000/api/videos/1 HTTP/1.1
+Accept: application/json
+
+### Create video
+POST http://localhost:3000/api/videos HTTP/1.1
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVkZXJAbWFpbC5jb20iLCJzdWIiOiI1ZGI3MjVlOS03MDk1LTQ5N2MtOTA5My01MTUyMGFmM2Y1NzMiLCJpYXQiOjE2NjU1NTc1NDAsImV4cCI6MTY2NTY0Mzk0MH0.dAWBqdwVg_Zy9_374L8MURN2buaFst0D7N6N6raUbB8

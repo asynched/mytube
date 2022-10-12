@@ -8,9 +8,9 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { Request } from 'express';
 import { JwtAuthGuard } from 'src/auth/jwt.guard';
 import { UserService } from 'src/user/user.service';
-import { Request } from 'express';
 
 @Controller('/api/profile')
 export class UserController {
