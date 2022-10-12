@@ -8,3 +8,5 @@ services:
     environment:
       POSTGRES_USER: docker
       POSTGRES_PASSWORD: docker
+    volumes:
+      - .pgdata:/var/lib/postgresql/data

@@ -1,0 +1,11 @@
+### Get owner profile
+
+GET http://localhost:3000/api/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVkZXJAbWFpbC5jb20iLCJzdWIiOiI1ZGI3MjVlOS03MDk1LTQ5N2MtOTA5My01MTUyMGFmM2Y1NzMiLCJpYXQiOjE2NjU1NTEyMTAsImV4cCI6MTY2NTYzNzYxMH0.9H0SSfFI4v1Zf1cKaJ31cr_iiVZAnFG2O6_OXGZjDdY
+
+### Get profile (invalid uuid)
+
+GET http://localhost:3000/api/profile/123 HTTP/1.1
+
+### Get profile
+GET http://localhost:3000/api/profile/5db725e9-7095-497c-9093-51520af3f573 HTTP/1.1

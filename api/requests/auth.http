@@ -1,0 +1,20 @@
+### Register
+
+POST http://localhost:3000/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Eder Lima",
+  "email": "eder@mail.com",
+  "password": "password1"
+}
+
+### Login
+
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "eder@mail.com",
+  "password": "password1"
+}
