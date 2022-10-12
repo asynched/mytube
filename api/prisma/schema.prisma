@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId   String @id() @default(uuid()) @db.Uuid()
+  name     String @db.VarChar(255)
+  email    String @unique() @db.VarChar(255)
+  password String @db.VarChar(255)
+
+  videos   Video[]
+  comments Comment[]
+  likes    Like[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Comment {
+  commentId String @id() @default(uuid()) @db.Uuid()
+  content   String @db.VarChar(1023)
+
+  userId String @db.Uuid()
+  user   User   @relation(fields: [userId], references: [userId])
+
+  videoId String @db.Uuid()
+  video   Video  @relation(fields: [videoId], references: [videoId])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Video {
+  videoId     String  @id() @default(uuid()) @db.Uuid()
+  title       String  @db.VarChar(255)
+  description String  @db.VarChar(1023)
+  filePath    String  @db.VarChar(1023)
+  views       BigInt  @default(0)
+  public      Boolean @default(true)
+
+  userId String @db.Uuid()
+  user   User   @relation(fields: [userId], references: [userId])
+
+  likes    Like[]
+  comments Comment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Like {
+  likeId String @id() @default(uuid()) @db.Uuid()
+
+  userId String @db.Uuid()
+  user   User   @relation(fields: [userId], references: [userId])
+
+  videoId String @db.Uuid()
+  video   Video  @relation(fields: [videoId], references: [videoId])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
